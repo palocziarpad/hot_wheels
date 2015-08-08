@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package>
+  <name>hotwheels_hardware</name>
+  <version>0.0.1</version>
+  <description>Main hardware entry point of the wheelsrobots.</description>
+
+  <maintainer email="saznetro@gmail.com">Arpad Paloczi</maintainer>
+  <author email="saznetro@gmail.com">Arpad Paloczi</author>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>diagnostic_updater</build_depend>
+  <build_depend>hardware_interface</build_depend>
+  <build_depend>realtime_tools</build_depend>
+  <build_depend>rosserial_server</build_depend>
+  <build_depend>hotwheels_msgs</build_depend>
+  <build_depend>dynamic_reconfigure</build_depend>
+
+  <run_depend>controller_manager</run_depend>
+  <run_depend>diagnostic_updater</run_depend>
+  <run_depend>rosserial_python</run_depend>
+  <run_depend>rosserial_server</run_depend>
+  <run_depend>hotwheels_msgs</run_depend>
+  <run_depend>dynamic_reconfigure</run_depend>
+
+</package>

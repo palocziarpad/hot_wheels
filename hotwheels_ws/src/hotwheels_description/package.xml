@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+  <name>hotwheels_description</name>
+  <version>0.0.1</version>
+  <description>The hotwheels_description package, describes the hotwheels robots</description>
+
+  <maintainer email="saznetro@gmail.com">Arpad Paloczi</maintainer>
+  <license>BSD</license>
+  
+  <author email="saznetro@gmail.com">Arpad Paloczi</author>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>xacro</run_depend>
+  <run_depend>hector_xacro_tools</run_depend>
+</package>

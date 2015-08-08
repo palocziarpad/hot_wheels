@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<robot name="kabuto" xmlns:xacro="http://ros.org/wiki/xacro">
+  
+  <property name="deg_to_rad" value="0.01745329251994329577" />
+
+  <!-- Body -->
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.0001"/>
+      <inertia ixx="0.291449269413691" ixy="0" ixz="0" 
+               iyy="0.274805369461669" iyz="0" izz="0.0889295417874259"/>
+    </inertial>
+  </link>
+
+  
+</robot>

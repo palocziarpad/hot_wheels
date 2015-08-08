@@ -1,0 +1,7 @@
+<launch>
+  <arg name="robot" default="kabuto"/>
+
+  <!-- Robot description -->
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find hotwheels_description)/robots/$(arg robot).urdf.xacro'" />
+
+</launch>

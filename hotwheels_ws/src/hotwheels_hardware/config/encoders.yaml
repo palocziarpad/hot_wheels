@@ -1,0 +1,12 @@
+encoder_parameters:
+  spine_joint:
+    - &spine_jntpos_min  1.12
+    - &spine_jntpos_max  2.8 
+    - &spine_enc_min     286
+    - &spine_enc_max     1753
+  neck_joint:
+    - &neck_jntpos_min  0.0
+    - &neck_jntpos_max  0.5 
+    - &neck_enc_min     1047
+    - &neck_enc_max     2975
+
