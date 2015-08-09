@@ -26,15 +26,17 @@ class PWMConverter
         multiplier_ *= direction;
     }
 
-    uint16_t operator()(double jnt_value)
+    double operator()(double jnt_value)
     {
+      ROS_WARN_STREAM(jnt_value);
       jnt_value = boost::algorithm::clamp(jnt_value, jnt_min_, jnt_max_);
+
       const double converted = jnt_value * multiplier_ + pwm_center_;
       //ROS_WARN(converted);
       return boost::algorithm::clamp(converted, pwm_min_, pwm_max_);
     }
 
-    uint16_t center()
+    double center()
     {
       return pwm_center_;
     }

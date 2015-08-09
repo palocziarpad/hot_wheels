@@ -1,8 +1,8 @@
 motor_parameters:
   wheel_right_1_joint:
-    - &wheel_jntvel_min -60.0
-    - &wheel_jntvel_max  60.0
-    - &wheel_pwm_min     0
+    - &wheel_jntvel_min -5.5
+    - &wheel_jntvel_max  5.5
+    - &wheel_pwm_min     -50
     - &wheel_pwm_max     50
     - &wheel_pwm_center  0
     - &direction_forward 1
