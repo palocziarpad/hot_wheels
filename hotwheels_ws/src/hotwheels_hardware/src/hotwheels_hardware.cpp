@@ -55,7 +55,7 @@ hotwheelsHardware::hotwheelsHardware()
 
   // Realtime publisher, initializes differently from regular ros::Publisher
 
-  base_cmd_pub_.init(nh_, "tiva_body/cmd_drive", 1);
+  base_cmd_pub_.init(nh_, "tiva/control_msg", 1);
 
 
 }

@@ -1,1 +1,1 @@
-float64[4] vel_commands
+float32[4] vel_commands

@@ -11,7 +11,7 @@
     <rosparam>
      <!-- baud: 921600
       rate: 50-->
-      baud: 57600
+      baud: 921600
       rate: 50
     </rosparam>
   </node>
@@ -24,7 +24,7 @@
       port: /dev/ttyACM0
       
       <!-- baud: 921600 -->
-      baud: 57600
+      baud: 921600
 <!-- TODO finalize when all is set (if you don't do it you will get a lot of warn)
       require:
         publishers: [ tiva/chatter, tiva/compass, tiva/imu, tiva/feedback ]
