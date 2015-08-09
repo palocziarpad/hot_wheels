@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <launch>
-  <arg name="separate_run" default="true"/>
   <arg name="tiva_device" default="/dev/ttyACM0"/>
     <!-- Upload robot_description -->
   <include file="$(find hotwheels_description)/launch/upload.launch">
@@ -8,22 +7,24 @@
   </include>
   
   <rosparam command="load" file="$(find hotwheels_hardware)/config/motors.yaml"/>
-  <rosparam command="load" file="$(find hotwheels_hardware)/config/encoders.yaml"/>
   <node pkg="hotwheels_hardware" type="hotwheels_node" name="hotwheels_node" output="screen">
     <rosparam>
-      baud: 921600
+     <!-- baud: 921600
+      rate: 50-->
+      baud: 57600
       rate: 50
     </rosparam>
   </node>
 
-  <!-- TODO: Eliminate this by compiling the necessary message definitions into hotwheels_base. -->
+  <!-- TODO: Eliminate this by compiling the necessary message definitions into hotwheels_base.--> 
 
     <node pkg="rosserial_python" type="message_info_service.py" name="rosserial_message_info" />
 <node respawn="true"  pkg="rosserial_server" type="serial_node" name="rosserial_server_body" output="screen">
     <rosparam>
       port: /dev/ttyACM0
       
-      baud: 921600 
+      <!-- baud: 921600 -->
+      baud: 57600
 <!-- TODO finalize when all is set (if you don't do it you will get a lot of warn)
       require:
         publishers: [ tiva/chatter, tiva/compass, tiva/imu, tiva/feedback ]

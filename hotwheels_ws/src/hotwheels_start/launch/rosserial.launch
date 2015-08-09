@@ -1,0 +1,14 @@
+<launch>
+  <node pkg="rosserial_server" type="serial_node" name="rosserial_server" output="screen">
+    <rosparam>
+      port: /dev/ttyACM0
+      baud: 57600
+<!-- TODO finalize when all is set
+      require:
+        publishers: [ tiva/chatter, tiva/compass, tiva/base_imu, tiva/feedback ]
+        subscribers: [ tiva/cmd_drive, tiva/lights]
+-->
+    </rosparam>
+  </node>
+  <node pkg="rosserial_python" type="message_info_service.py" name="rosserial_message_info" />
+</launch>
