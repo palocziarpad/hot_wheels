@@ -28,7 +28,9 @@ class PWMConverter
 
     double operator()(double jnt_value)
     {
-      ROS_WARN_STREAM(jnt_value);
+
+
+     // ROS_WARN_STREAM(jnt_value);
       jnt_value = boost::algorithm::clamp(jnt_value, jnt_min_, jnt_max_);
 
       const double converted = jnt_value * multiplier_ + pwm_center_;
