@@ -26,8 +26,8 @@ float valuetrimmer(float value){
   float trimmedvalue=value; 
   if (value<3.0){
      trimmedvalue=1.0;
-   } else if(value>50.0){
-     trimmedvalue=50.0;
+   } else if(value>75.0){
+     trimmedvalue=75.0;
    }
    return trimmedvalue;
 }
@@ -42,17 +42,17 @@ void messageControlExec( const hotwheels_msgs::Control& controldata)
   float m1pwmvalue=controldata.vel_commands[0];
   float m2pwmvalue=controldata.vel_commands[2];
   
-  if (controldata.vel_commands[0]<0){
-    digitalWrite(PF_2, LOW);
+ if (controldata.vel_commands[0]<0){
+    digitalWrite(PF_2, HIGH);
     m1pwmvalue=-1.0*m1pwmvalue;
   }else{
-    digitalWrite(PF_2, HIGH);
+    digitalWrite(PF_2, LOW);
  }
  if (controldata.vel_commands[2]<0){
     digitalWrite(PF_4, LOW);
     m2pwmvalue=-1.0*m2pwmvalue;
   }else{
-    digitalWrite(PF_4, HIGH);
+     digitalWrite(PF_4, HIGH);
  }
  m1pwmvalue=valuetrimmer(m1pwmvalue);
  m2pwmvalue=valuetrimmer(m2pwmvalue);
@@ -74,7 +74,9 @@ void setup()
   nh.subscribe(subcontroltopic);
   //m1.attach(PB_4, 20, 8000);
   m1.attach(PB_4, 8000);
+  m1.writePercent(1);
   m2.attach(PB_6, 8000);
+  m2.writePercent(1);
   pinMode(PF_2, OUTPUT); 
   digitalWrite(PF_2, HIGH);
   pinMode(PF_4, OUTPUT); 
@@ -86,6 +88,6 @@ void loop()
   str_msg.data = hello;
   chatter.publish( &str_msg );
   nh.spinOnce();
-  m1.writePercent(10);
+  //m1.writePercent(10);
   // delay(100);
 }
