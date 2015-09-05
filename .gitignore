@@ -1,3 +1,5 @@
 hotwheels_ws/devel/*
 hotwheels_ws/build/*
 hotwheels_ws/.catkin_workspace
+hotwheels_ws/src/gscam/
+hotwheels_ws/src/video_stream_opencv/
