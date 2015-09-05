@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="tiva_device" default="/dev/ttyACM0"/>
+  <!-- hotwheels_hardware runs rosserial and ros_control HAL -->
+  <include file="$(find hotwheels_hardware)/launch/hotwheels_hardware.launch">
+    <arg name="tiva_device" value="$(arg tiva_device)"/>
+  </include>
+
+  <!-- Load default controllers -->
+  <include file="$(find hotwheels_controller_configuration)/launch/default_controllers.launch"/>
+
+  <!-- Robot state publisher -->
+  <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0"/>
+    <param name="tf_prefix" type="string" value=""/>
+  </node>
+  
+  <!-- Load default controllers -->
+  <include file="$(find hotwheels_start)/launch/ps3_eye_usbcam.launch"/>
+
+
+</launch>

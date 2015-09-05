@@ -1,0 +1,14 @@
+<launch>
+  <arg name="video_device" default="/dev/video0"/>
+  <arg name="node_name" default="jocoka_tefasznemallitottadbeanevet"/>
+  
+  <node name="$(arg node_name)" pkg="usb_cam" type="usb_cam_node"  >
+    <param name="video_device" value="$(arg video_device)" />
+    <param name="image_width" value="640" />
+    <param name="image_height" value="480" />
+    <param name="pixel_format" value="yuyv" />
+    <param name="camera_frame_id" value="usb_cam" />
+    <param name="io_method" value="mmap"/>
+  </node>
+  
+</launch>
