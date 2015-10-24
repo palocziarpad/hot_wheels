@@ -14,7 +14,7 @@ sudo apt-get install python-rosdep
 sudo rosdep init
 rosdep update
 echo "Environment setup"
-echo "source /opt/ros/jade/setup.bash" >> ~/.bashrc
+echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 
 
