@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <name>hotwheels_gazebo</name>
+  <version>0.0.1</version>
+  <description>The hotwheels package</description>
+  <maintainer email="paloczi.arpad@gmail.com">Arpad Paloczi</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>hotwheels_description</build_depend>
+  <build_depend>hotwheels_hardware_gazebo</build_depend>
+  <build_depend>hotwheels_controller_configuration</build_depend>
+  <build_depend>gazebo_ros</build_depend>
+  <run_depend>hotwheels_description</run_depend>
+  <run_depend>hotwheels_hardware_gazebo</run_depend>
+  <run_depend>hotwheels_controller_configuration</run_depend>
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>hector_gazebo_plugins</run_depend>
+</package>

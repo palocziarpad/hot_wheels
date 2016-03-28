@@ -1,26 +1,26 @@
 motor_parameters:
-  wheel_right_1_joint:
+  front_right_wheel_joint:
     - &wheel_jntvel_min -4.5
     - &wheel_jntvel_max  4.5
     - &wheel_pwm_min     -75
     - &wheel_pwm_max     75
     - &wheel_pwm_center  0
     - &direction_forward 1
-  wheel_right_2_joint:
+  rear_right_wheel_joint:
     - *wheel_jntvel_min
     - *wheel_jntvel_max
     - *wheel_pwm_min 
     - *wheel_pwm_max
     - *wheel_pwm_center
     - *direction_forward
-  wheel_left_1_joint:
+  front_left_wheel_joint:
     - *wheel_jntvel_min
     - *wheel_jntvel_max
     - *wheel_pwm_min 
     - *wheel_pwm_max
     - *wheel_pwm_center
     - *direction_forward
-  wheel_left_2_joint:
+  rear_left_wheel_joint:
     - *wheel_jntvel_min
     - *wheel_jntvel_max
     - *wheel_pwm_min 

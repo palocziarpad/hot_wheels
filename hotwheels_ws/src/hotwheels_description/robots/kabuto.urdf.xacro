@@ -1,19 +1,123 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<robot name="kabuto" xmlns:xacro="http://ros.org/wiki/xacro">
+<?xml version="1.0"?>
+<robot name="kabuto" xmlns:xacro="http://www.ros.org/wiki/xacro">
   
-  <property name="deg_to_rad" value="0.01745329251994329577" />
+  <xacro:include filename="$(find hotwheels_description)/urdf/xtion_camera.xacro" />
+  <xacro:include filename="$(find hotwheels_description)/gazebo/gazebo.urdf.xacro"/>
+  <xacro:property name="PI" value="3.1415926535897931" />
+  <xacro:property name="wheelbase" value="0.142" />
+  <xacro:property name="track" value="0.37559" /> <!-- TODO FIX track value -->
+  <xacro:property name="wheel_vertical_offset" value="-0.03" />
+  <xacro:property name="wheel_radius" value="0.06" />
+  <xacro:property name="wheel_lenght" value="0.05" />
 
-  <!-- Body -->
 
-  <link name="base_link">
+  <material name="dark_grey"><color rgba="0.2 0.2 0.2 1.0" /></material>
+  <material name="light_grey"><color rgba="0.4 0.4 0.4 1.0" /></material>
+  <material name="yellow"><color rgba="0.8 0.8 0.0 1.0" /></material>
+  <material name="black"><color rgba="0.15 0.15 0.15 1.0" /></material>
+
+  <link name="base_link"></link> 
+ 
+  <link name="chassis_link">
+    <visual>
+      <geometry>
+        <box size=".383 .264 0.068"/>
+      </geometry>
+       <material name="light_grey">
+    </material>
+    </visual>
+    <collision>
+        <geometry>
+        <box size=".383 .264 0.068"/>
+      </geometry>
+    </collision>
     <inertial>
+      <!-- Center of mass -->
+      <origin xyz="0.012  0.002 0.067" rpy="0 0 0"/>
+      <mass value="16.523"/>
+      <!-- Moments of inertia: ( chassis without wheels ) -->
+      <inertia
+        ixx="0.3136" ixy="-0.0008" ixz="0.0164"
+        iyy="0.3922" iyz="-0.0009"
+        izz="0.4485"/>
+      </inertial>
+  </link>
+
+  <xtion_camera name="xtion_head_camera" parent="chassis_link">
+    <origin xyz="0 0 0.026" rpy="0 0 0"/>
+  </xtion_camera>
+
+  <joint name="base_link_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="chassis_link" />
+  </joint>
+
+  <xacro:macro name="wheel" params="prefix *joint_pose">
+
+     <link name="${prefix}_wheel_link">
+    <inertial> 
+        <origin xyz="0 0 0" rpy="0 0 0"/> 
+          <mass value="1"/> 
+           <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/> 
+     </inertial>
+    <!-- <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.0001"/>
       <inertia ixx="0.291449269413691" ixy="0" ixz="0" 
                iyy="0.274805369461669" iyz="0" izz="0.0889295417874259"/>
-    </inertial>
-  </link>
+    </inertial>-->
+     <visual>
+        <origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
+      <geometry>
+        <cylinder length="${wheel_lenght}" radius="${wheel_radius}"/>
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+        <origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
+        <geometry>
+          <cylinder length="${wheel_lenght}" radius="${wheel_radius}"/>
+        </geometry>
+      </collision>
+    </link>
 
+
+    <joint name="${prefix}_wheel_joint" type="continuous">
+      <parent link="chassis_link"/>
+      <child link="${prefix}_wheel_link" />
+      <xacro:insert_block name="joint_pose" /> 
+      <axis xyz="0 1 0" />
+    </joint> 
+    <transmission name="${prefix}_wheel_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <actuator name="${prefix}_wheel_motor" >
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+        <mechanicalReduction>1.0</mechanicalReduction>
+      </actuator>
+      <joint name="${prefix}_wheel_joint">
+
+        <!-- <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>-->
+
+       <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      </joint>
+    </transmission>
+    <gazebo reference="${prefix}_wheel_link">
+      <material>Gazebo/DarkGrey</material>  
+    </gazebo>
+  </xacro:macro>
   
+  <xacro:wheel prefix="front_left">
+    <origin xyz="${wheelbase/2} ${track/2} ${wheel_vertical_offset}" rpy="0 0 0" />
+  </xacro:wheel>
+  <xacro:wheel prefix="front_right">
+    <origin xyz="${wheelbase/2} ${-track/2} ${wheel_vertical_offset}" rpy="0 0 0" />
+  </xacro:wheel>
+  <xacro:wheel prefix="rear_left">
+    <origin xyz="${-wheelbase/2} ${track/2} ${wheel_vertical_offset}" rpy="0 0 0" />
+  </xacro:wheel>
+  <xacro:wheel prefix="rear_right">
+    <origin xyz="${-wheelbase/2} ${-track/2} ${wheel_vertical_offset}" rpy="0 0 0" />
+  </xacro:wheel>
+
 </robot>

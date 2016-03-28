@@ -1,7 +1,7 @@
 mobile_base_controller:
   type        : "diff_drive_controller/DiffDriveController"
-  left_wheel  : ['wheel_left_1_joint', 'wheel_left_2_joint']
-  right_wheel : ['wheel_right_1_joint', 'wheel_right_2_joint']
+  left_wheel  : ['front_left_wheel_joint', 'rear_left_wheel_joint']
+  right_wheel : ['front_right_wheel_joint', 'rear_right_wheel_joint']
   publish_rate: 50.0 
   pose_covariance_diagonal : [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
   twist_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]

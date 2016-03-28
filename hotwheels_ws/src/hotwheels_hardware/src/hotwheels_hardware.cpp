@@ -6,8 +6,8 @@ namespace hotwheels_hardware
 
 hotwheelsHardware::hotwheelsHardware()
 {
-  ros::V_string vel_joint_names = boost::assign::list_of("wheel_right_1_joint")
-      ("wheel_right_2_joint")("wheel_left_1_joint")("wheel_left_2_joint");
+  ros::V_string vel_joint_names = boost::assign::list_of("front_left_wheel_joint")
+      ("front_right_wheel_joint")("rear_left_wheel_joint")("rear_right_wheel_joint");
  
 
   if(nh_.hasParam("motor_parameters"))

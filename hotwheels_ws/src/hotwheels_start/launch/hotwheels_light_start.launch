@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Load default controllers -->
+  <include file="$(find hotwheels_controller_configuration)/launch/default_controllers.launch"/>
+
+  <!-- Robot state publisher -->
+  <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0"/>
+    <param name="tf_prefix" type="string" value=""/>
+  </node>
+
+  <!-- Depth to LaserScan -->
+  <!-- <include file="$(find hotwheels_start)/launch/depthimagetolaser.launch"/> -->
+  
+</launch>
