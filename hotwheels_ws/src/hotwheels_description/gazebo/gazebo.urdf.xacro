@@ -8,4 +8,12 @@
     <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
   </plugin>
 </gazebo>
+<gazebo reference="base_link">
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+  <gazebo reference="chassis_link">
+   <!-- <material>Gazebo/DarkGrey</material-->
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
 </robot>
