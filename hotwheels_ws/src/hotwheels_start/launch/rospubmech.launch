@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+
+<launch>
+<node pkg="rostopic" type="rostopic" name="arbitrary_name" args="pub /robotsound sound_play/SoundRequest '{sound: -2,command: 2, volume: 1.0, arg: '/home/odroid/Downloads/mechwstartup.ogg', arg2: ''}'" />
+</launch>

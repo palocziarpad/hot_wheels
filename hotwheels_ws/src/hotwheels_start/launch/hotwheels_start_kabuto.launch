@@ -18,6 +18,9 @@
   
   <!-- Load default controllers -->
   <include file="$(find hotwheels_start)/launch/ps3_eye_usbcam.launch"/>
-
+  <include file="$(find hotwheels_start)/launch/xtion.launch"/>
+  <include file="$(find sound_play)/soundplay_node.launch"/>
+<node pkg="rostopic" type="rostopic" name="arbitrary_name" args="pub /robotsound sound_play/SoundRequest '{sound: -2,command: 2, volume: 1.0, arg: '/home/odroid/Downloads/mechwstartup.ogg', arg2: ''}'" /> 
+<node name="foo" pkg="hotwheels_start" type="mechwstart.sh"/> 
 
 </launch>

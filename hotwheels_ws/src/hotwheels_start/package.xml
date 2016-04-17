@@ -13,14 +13,16 @@
   <run_depend>hotwheels_controller_configuration</run_depend>
   <run_depend>robot_state_publisher</run_depend>
   <run_depend>openni2_launch</run_depend>
-  <!--<run_depend>key_teleop</run_depend> -->
-  <!-- <run_depend>depthimage_to_laserscan</run_depend> -->
+  <run_depend>key_teleop</run_depend>
+  
   <run_depend>usb_cam</run_depend>  
   <run_depend>joy_teleop</run_depend>
   <run_depend>image_transport</run_depend>
+
   <run_depend>compressed_image_transport</run_depend>
-  <!--<run_depend>compressed_depth_image_transport</run_depend>
-    <run_depend>rqt_robot_plugins</run_depend> 
-  <run_depend>uvc_camera</run_depend>-->
-  <!-- <run_depend>hector_imu_attitude_to_tf</run_depend> -->
+
+  <run_depend>robot_state_publisher</run_depend> 
+  
+   <run_depend>sound_play</run_depend> 
+
 </package>
