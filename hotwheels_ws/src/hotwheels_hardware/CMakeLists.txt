@@ -3,7 +3,7 @@ project(hotwheels_hardware)
 
 find_package(catkin REQUIRED COMPONENTS
   controller_manager diagnostic_updater 
-  hardware_interface roscpp rosserial_server)
+  hardware_interface roscpp rosserial_server hotwheels_msgs)
 find_package(Boost REQUIRED COMPONENTS thread)
 
 catkin_package()
